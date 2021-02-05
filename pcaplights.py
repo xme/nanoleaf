@@ -45,6 +45,8 @@ def colorize_panel(panel):
                     blue  = int(r.group(3))
                 break
             except:
+                # Assign the generated color to the panel
+                p['color'] = "(%d,%d,%d)" % (red, green, blue)
                 break
 
     effect_data = {
@@ -112,6 +114,7 @@ def main(argv):
     global panels
     global ports_colors
     global color_filter
+    global verbose
 
     parser = OptionParser(usage="usage: %prog [options]", version="%prog 1.0")
     parser.add_option('-i', '--interface', dest='interface', default='lo', type='string', \
